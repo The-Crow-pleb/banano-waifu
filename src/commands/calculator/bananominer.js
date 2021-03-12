@@ -8,40 +8,37 @@ module.exports = {
     description: 'Calcula o quanto de banano você vai receber do f@h',
     run: async(client, message, args) => {
 
-        let PPD = args[0];
-        let currency = args[1];
         const {guild} = message
+        let PPD = args[0]; let currency = args[1];
+        let scope; let PPDAlt; let PPDUtil;
         
+        if(PPD > 300000) {
+            scope = {fExp: 5E-05, ppd:PPD, sExp:112.13}
+            PPDAlt = math.evaluate('(fExp * ppd + sExp)', scope)
+            PPDUtil = '5E-05 x PPD + 112.13'
+        } else {
+            scope = {fExp:0.49, ppd:PPD, sExp:0.42}
+            PPDAlt = math.evaluate('fExp * (ppd^sExp)', scope)
+            PPDUtil = '0.49 x PPD ^ 0.42'
+        }
 
         if(!PPD) {
-            return message.reply("Você precisa inserir uma quantidade de PPD para que eu possa calcular!\nVocê também pode inserir uma moeda na qual seja válida para que eu calcule o valor dela.")
+            return message.reply(lang(guild, "miner"))
         } else if(!currency) {
             
-            let PPDfirst = {fExp:2.2, ppd:PPD, sExp:2, tExp: 0.44}
-            let PPDtotal = math.evaluate('fExp * (ppd / sExp ) ^ tExp', PPDfirst)
-
-            let scope = {fExp:0.955793, ppd:PPD, sExp:0.430331}
-            let PPDAlt = math.evaluate('fExp * (ppd^sExp)', scope)
- 
-            message.reply(`Certo, seu PPD é de ${PPD}, irei calcular para você, me dê um segundo. . .`).then(async(msg) => {
+            message.reply(`${lang(guild, "miner_2")} ${PPD}${lang(guild, "miner_2b")}`).then(async(msg) => {
                 const dlt = msg.delete({timeout: 3000})
                 message.channel.startTyping()
-                const obs = new MessageEmbed()
-                    .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
-                    .setColor("#FA5407")
-                    .setTitle('OBSERVAÇÃO')
-                    .setDescription('Os cálculos se baseiam em DUAS fórmulas, uma mais conhecida e outra mais nova, considere ambas na hora de ver seus pontos e >> NÃO << leve nenhuma das duas como valor absoluto do que você irá ganhar. Mas provavelmente o segundo cálculo é mais confiável.\n\nVocê irá encontrar nas próximas páginas os dois cálculos.')                
-                const calculoUm = new MessageEmbed()
+                const calculo = new MessageEmbed()
                     .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
                     .addFields(
-                        {name: 'Fórmula utilizada: 2.2 * (PPD / 2 ) ^ 0.44', value: `\`\`\`diff\n-Pontos por Dia (PPD): ${PPD}\n\n+Estimativa de Bananos: ${PPDtotal} Bananos\`\`\``},
-                        {name: 'Fórmula utilizada: 0.955793 * (PPD ^ 0.430331)', value: `\`\`\`diff\n-Pontos por Dia (PPD): ${PPD}\n\n+Estimativa de Bananos: ${PPDAlt} Bananos\n\n---Autoria da Fórmula: ZZMthesurand#4965\`\`\``}
+                        {name: `${lang(guild, "miner_3")}: ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n---${lang(guild, "miner_auth")} ZZMthesurand#4965\`\`\``}
                     )
                     .setColor("#FA5407")
-                pgs=[obs, calculoUm]
                 await dlt; message.channel.stopTyping()
-                pages(message, pgs)
+                message.reply(calculo)
             })
+
         } else {
             const get = client.crypto
             const banano = await get.coins.markets({vs_currency: currency, ids: 'banano'})
@@ -57,30 +54,17 @@ module.exports = {
             } else if(banano.success === true) {
                 let price = await data.map(x => x.current_price);
 
-                let PPDfirst = {fExp:2.2, ppd:PPD, sExp:2, tExp: 0.44}
-                let PPDtotal = math.evaluate('fExp * (ppd / sExp ) ^ tExp', PPDfirst)
-    
-                let scope = {fExp:0.955793, ppd:PPD, sExp:0.430331}
-                let PPDAlt = math.evaluate('fExp * (ppd^sExp)', scope)
-
                 message.reply(`Certo, seu PPD é de ${PPD}, irei calcular para você, me dê um segundo. . .`).then(async(msg) => {
                     const dlt = msg.delete({timeout: 3000})
                     message.channel.startTyping()
-                    const obs = new MessageEmbed()
-                        .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
-                        .setColor("#FA5407")
-                        .setTitle('OBSERVAÇÃO')
-                        .setDescription('Os cálculos se baseiam em DUAS fórmulas, uma mais conhecida e outra mais nova, considere ambas na hora de ver seus pontos e >> NÃO << leve nenhuma das duas como valor absoluto do que você irá ganhar. Mas provavelmente o segundo cálculo é mais confiável.\n\nVocê irá encontrar nas próximas páginas os dois cálculos.')                
                     const calculoUm = new MessageEmbed()
                         .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
                         .addFields(
-                            {name: 'Fórmula utilizada: 2.2 * (PPD / 2 ) ^ 0.44', value: `\`\`\`diff\n-Pontos por Dia (PPD): ${PPD}\n\n+Estimativa de Bananos: ${PPDtotal} Bananos\n\n+Estimativa de Moeda: ${price * PPDtotal} ${currency.toUpperCase()}\`\`\``},
-                            {name: 'Fórmula utilizada: 0.955793*(PPD^0.430331)', value: `\`\`\`diff\n-Pontos por Dia (PPD): ${PPD}\n\n+Estimativa de Bananos: ${PPDAlt} Bananos\n\n+Estimativa de Moeda: ${price * PPDAlt} ${currency.toUpperCase()}\n\n---Autoria da Fórmula: ZZMthesurand#4965\`\`\``}
+                            {name: `${lang(guild, "miner_3")}: ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n+${lang(guild, "miner_diff3")} ${price * PPDAlt} ${currency.toUpperCase()}\n\n---${lang(guild, "miner_auth")} ZZMthesurand#4965\`\`\``}
                         )
                         .setColor("#FA5407")
-                    pgs=[obs, calculoUm]
                     await dlt; message.channel.stopTyping()
-                    pages(message, pgs)
+                    message.reply(calculoUm)
                 })
 
             }

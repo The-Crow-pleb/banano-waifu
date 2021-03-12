@@ -1,7 +1,65 @@
 {
     "languages": ["english", "portugues"],
     "traduções": {
-        
+
+        "nan": {
+            "english": "is not a valid number, please, retry using a valid number.\nTry not to use commas, only points or integers. Ex: instead of using \"1,500\", use \"1.500\" or \"1500\"(Best Option)",
+            "portugues": "não é um número válido, por favor, tente novamente usando um número válido.\nTente também não utilizar vírgulas no número, apenas pontuações ou números inteiros. Ex: ao invés de \"1.500\", utilize \"1.500\" ou \"1500\" (Melhor Opção)"
+        },
+
+        "nac": {
+            "english": "is not a valid currency, please use the crypto market-name.\nExample: \"ethereum\" instead of \"eth\"",
+            "portugues": "não é uma moeda válida, por favor, use o nome de mercado da cripto.\nExemplo: \"ethereum\" ao invés de \"eth\""
+        },
+        "crypt_err": {
+            "english": "Oops, something went wrong.",
+            "portugues": "Oops, algo deu errado."
+        },
+        "crypt_err2": {
+            "english" :"Check the field below for the error:",
+            "portugues": "Cheque o campo abaixo para ver o erro:"
+        },
+        "noAmount":  {
+            "english": "Please, input an amount of cripto!",
+            "portugues": "Por favor, coloque uma quantidade de cripto!"
+        },
+        "crypt_curr": {
+            "english": "❌ Failed: Please, select a Currency to use.\nPlease, remember to use market data currencies, such as: 'usd', 'jpy' and etc.",
+            "portugues": "❌ Falha: Por favor, selecione uma Moeda para utilizar\nPor favor, lembre-se de utilizar Moedas da Market Data, como por exemplo: 'usd', 'jpy' e etc." 
+        },
+
+        "miner": {
+            "english": "You need to enter a quantity of PPD so that I can calculate!\nYou can also insert a currency for me to calculate its value ion bananos.",
+            "portugues": "Você precisa inserir uma quantidade de PPD para que eu possa calcular!\nVocê também pode inserir uma moeda na qual seja válida para que eu calcule o valor dela em bananos."
+        },
+        "miner_2": {
+            "english": "Okay, your PPD is",
+            "portugues": "Okay, seu PPD é de"
+        },
+        "miner_2b": {
+            "english": ", I'll calculate it for you, give me a second. . .",
+            "portugues": ", irei calcular para você, me dê um segundo. . ."
+        },
+        "miner_3": {
+            "english": "Equation used:",
+            "portugues": "Equação utilizada:"
+        },
+        "miner_diff1": {
+            "english": "Points Per Day (PPD):",
+            "portugues": "Potos por Dia(PPD):"
+        },
+        "miner_diff2": {
+            "english": "Banano Estimative:",
+            "portugues": "Estimativa de Bananos:"
+        },
+        "miner_auth": {
+            "english": "Equation authorship:",
+            "portugues": "Autoria da Equação:"
+        },
+        "miner_diff3": {
+            "english": "Estimated Fiduciary Currency Value:",
+            "portugues": "Estimativa de Valor de Moeda Fiduciária:"
+        }
 
     }
 }

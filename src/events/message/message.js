@@ -5,7 +5,9 @@ module.exports = async(client, message) => {
 
     let PREFIX = process.env.PREFIX
 
-    if(message.content.startsWith(PREFIX)) {
+    if(message.channel.type === 'dm') {
+        return message.reply("I am not able to execute commands in DMs!")
+    }else if(message.content.startsWith(PREFIX)) {
         const [cmdName, ...cmdArgs] = message.content
             .slice(PREFIX.length)
             .trim()

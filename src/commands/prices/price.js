@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js")
-const pages = require('discord.js-pagination')
 const lang = require('../../utils/languages/languages')
 module.exports = {
     aliases: [],
@@ -65,6 +64,5 @@ module.exports = {
             message.reply(finalPrice)
             
         }
-
     }
 }

@@ -10,6 +10,14 @@ module.exports = {
         const {guild} = message; const get = client.crypto
         let PPD = args[0]; let scope; let PPDAlt; let PPDUtil;
         
+        if(PPD.includes(',')) {
+            PPD = PPD.replace(',', '')
+            console.log('ok')
+        } else if(PPD.includes('.')) {
+            PPD = PPD.replace('.', '')
+            console.log('ok')
+        }
+
         if(PPD > 300000) {
             scope = {fExp: 5E-05, ppd:PPD, sExp:112.13}
             PPDAlt = math.evaluate('(fExp * ppd + sExp)', scope)
@@ -54,8 +62,8 @@ module.exports = {
                     .addFields(
                         {name: `${lang(guild, "miner_3")} ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n+${lang(guild, "miner_diff3")} ${btc * PPDAlt} Sats\n\n+${lang(guild, "miner_diff4")} ${nanoPrice}\n\n+${lang(guild, "miner_diff5")} ${bananoUSD}\n\n---${lang(guild, "miner_auth")}\`\`\``}
                     )
-                    .setColor("#FA5407")
-                    .setFooter(`${lang(guild, "data_prov")} ${data.map(x=>x.last_updated)}`)
+                    .setColor("#ffdf00")
+                    .setFooter(`${lang(guild, "data_prov")} ${data.map(x=>x.last_updated)}\n${lang(guild, "disclaimer")}`)
                 await dlt; message.channel.stopTyping()
                 message.reply(calculoUm)
             })

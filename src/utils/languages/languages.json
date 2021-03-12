@@ -71,6 +71,68 @@
         "data_prov": {
             "english": "Data provided by CoinGecko\nLast update:",
             "portugues": "Dados providenciados por CoinGecko\nÚltima atualização:"
+        },
+        "maxArgsExc": {
+            "english": "Max. Arguments exceeded. Max args allowed:",
+            "portugues": "Máximo de Argumentos excedidos. Máximo permitido:"
+        },
+        "disclaimer": {
+            "english": "The values might not be 100% correct because of payment changes.",
+            "portugues": "Os valores talvez não estejam 100% corretos por conta das mudanças de pagamento."
+        },
+
+
+        "h": {
+            "english": "Help Menu:",
+            "portugues": "Menu de Ajuda:"
+        },
+        "h2": {
+            "english": "Main Page",
+            "portugues": "Página Principal"
+        },
+        "h_m": {
+            "english": "Introduction:",
+            "portugues": "Introdução:"
+        },
+        "h_m_1": {
+            "english": "I am a bot that is able to calculate your estimated earnings from F@H with your PPD. I am not able to calculate per Watt earnings, only brute earning based on PPD.\nOBS: The values might not be 100% correct since the changes of payment.",
+            "portugues": "é um bot no qual é capaz de calcular o valor estimado em que você irá receber de F@H com seus PPD. Eu não sou capaz de calcular lucros per Watt, apenas lucro bruto. OBS: Os valores talvez não sejam 100% corretos por conta das mudanças de pagamento."
+        },
+        "h_m2": {
+            "english": "Useful links:",
+            "portugues": "Links úteis:"
+        },
+        "h_d": {
+            "english": "Donations (Not necessary, but always welcomed)",
+            "portugues": "Doações (Não necessárias, mas sempre bem-vindas)"
+        },
+        "h3": {
+            "english": "Command Page",
+            "portugues": "Página de Comandos"
+        },
+        "h_c": {
+            "english": "Banano Calculator:",
+            "portugues": "Calculadora de Banano:"
+        },
+        "h_c_1": {
+            "english": "Crypto value seeker:",
+            "portugues": "Buscador de valor de Cryptos"
+        },
+        "name": {
+            "english": "Crypto name",
+            "portugues": "Nome da Crypto"
+        },
+        "currency": {
+            "english": "Desired currency",
+            "portugues": "Moeda desejada"
+        },
+        "quant": {
+            "english": "Quantity",
+            "portugues": "Quantidade"
+        },
+        "h_c_2": {
+            "english": "Language changer (Only for Admins)",
+            "portugues": "Mudança de Idioma (Apenas para Admins)"
         }
 
     }

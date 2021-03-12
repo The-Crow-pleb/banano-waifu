@@ -1,0 +1,27 @@
+{
+  "name": "banano-calculator",
+  "version": "1.0.0",
+  "description": "A bot made to calculate the Estimated Banano Earnings from f@h and other things",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Crow-pleb/banano-calculator.git"
+  },
+  "author": "Tocka Waifu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Crow-pleb/banano-calculator/issues"
+  },
+  "homepage": "https://github.com/The-Crow-pleb/banano-calculator#readme",
+  "dependencies": {
+    "coingecko-api": "^1.0.10",
+    "discord.js": "^12.5.1",
+    "discord.js-pagination": "^1.0.3",
+    "dotenv": "^8.2.0",
+    "mathjs": "^9.3.0",
+    "mongoose": "^5.12.0"
+  }
+}

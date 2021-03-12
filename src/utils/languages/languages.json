@@ -53,12 +53,24 @@
             "portugues": "Estimativa de Bananos:"
         },
         "miner_auth": {
-            "english": "Equation authorship:",
-            "portugues": "Autoria da Equação:"
+            "english": "Equation authorship: ZZMthesurand#4965",
+            "portugues": "Autoria da Equação: ZZMthesurand#4965"
         },
         "miner_diff3": {
-            "english": "Estimated Fiduciary Currency Value:",
-            "portugues": "Estimativa de Valor de Moeda Fiduciária:"
+            "english": "BTC Value:",
+            "portugues": "Valor em BTC:"
+        },
+        "miner_diff4": {
+            "english": "Nano Value:",
+            "portugues": "Valor em Nano:"
+        },
+        "miner_diff5": {
+            "english": "USD Value:",
+            "portugues": "Valor em USD:"
+        },
+        "data_prov": {
+            "english": "Data provided by CoinGecko\nLast update:",
+            "portugues": "Dados providenciados por CoinGecko\nÚltima atualização:"
         }
 
     }

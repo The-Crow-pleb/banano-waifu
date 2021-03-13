@@ -42,17 +42,8 @@ module.exports = {
         const nano = await get.coins.markets({vs_currency: 'usd', ids: 'nano'})
         let nanoData = nano.data.map(x => x.current_price)
         let nanoPrice = bananoUSD / nanoData
-
-        if(data.error === 'invalid vs_currency') {
-
-            const errorEmbed = new MessageEmbed()
-                .setColor('#ff0000')
-                .setAuthor(guild.name, guild.iconURL({dynamic: true}))
-                .setTitle(lang(guild, "crypt_err"))
-                .addField(lang(guild, "crypt_err2"), `\`\`\`Invalid Currency\`\`\``)
-            return message.reply(errorEmbed)
-
-        } else if(banano.success === true) {
+        
+        if(banano.success === true) {
 
             message.reply(`${lang(guild, "miner_2")} ${PPD}${lang(guild, "miner_2b")}`).then(async(msg) => {
                 const dlt = msg.delete({timeout: 3000})

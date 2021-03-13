@@ -4,7 +4,7 @@ module.exports = async(client) => {
     const db = require('../../configs/dbs/dbLogin');
     
     db.then(() => console.log(`${client.user.username} bananoloaded into DB!`)).catch(err => console.log(err))
-    console.log(`${client.user.username} Bananoloaded!`)
+    console.log(`${client.user.username} Bananoloaded into ${client.guilds.cache.size} monke-servers!`)
     const crypto = client.crypto
     const banano = await crypto.coins.markets({vs_currency: 'sats', ids: 'banano'})
     let price1 = Math.floor(banano.data.map(x => x.current_price)); let price2 = Math.floor(banano.data.map(x => x.current_price));

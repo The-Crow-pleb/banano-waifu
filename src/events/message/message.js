@@ -1,7 +1,6 @@
 module.exports = async(client, message) => {
     
     if(message.author.bot) return
-    const {guild, author} = message
 
     let PREFIX = process.env.PREFIX
 

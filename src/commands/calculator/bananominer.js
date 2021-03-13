@@ -18,7 +18,7 @@ module.exports = {
             console.log('ok')
         }
 
-        if(PPD > 300000) {
+        if(PPD > 3000000) {
             scope = {fExp: 5E-05, ppd:PPD, sExp:112.13}
             PPDAlt = math.evaluate('(fExp * ppd + sExp)', scope)
             PPDUtil = '5E-05 x PPD + 112.13'

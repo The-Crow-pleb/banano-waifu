@@ -22,6 +22,8 @@
     "discord.js-pagination": "^1.0.3",
     "dotenv": "^8.2.0",
     "mathjs": "^9.3.0",
-    "mongoose": "^5.12.0"
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.0",
+    "node-fetch": "^2.6.1"
   }
 }

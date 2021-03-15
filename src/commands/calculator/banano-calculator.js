@@ -19,15 +19,17 @@ module.exports = {
         if(!currency) {
             currency = 'usd'
         } else currency = args[1]
-
+        
+        
         if(PPD > 3000000) {
-            scope = {fExp: 5E-05, ppd:PPD, sExp:112.13}
-            PPDAlt = math.evaluate('(fExp * ppd + sExp)', scope)
-            PPDUtil = '5E-05 x PPD + 112.13'
+            scope = {fExp:2, sExp:4E-12, tExp:2, fExp:2, ftExp: 2E-05, sxExp:2, stExp: 224.65, ppd: PPD}
+            PPDAlt = math.evaluate('fExp * ((sExp *(ppd / tExp)) ^ fExp + ftExp * (ppd / sxExp) + stExp)', scope)
+            PPDUtil = '2 * ((4E-12*(PPD/2))^2 + 2E-05*(PPD/2) + 224.65)'
         } else {
-            scope = {fExp:0.49, ppd:PPD, sExp:0.42}
-            PPDAlt = math.evaluate('fExp * (ppd^sExp)', scope)
-            PPDUtil = '0.49 x PPD ^ 0.42'
+            2 * 0.39 * (PPD/2)^0.45
+            scope = {fExp: 2, sExp:0.39, tExp:2, ftExp:0.45 , ppd:PPD}
+            PPDAlt = math.evaluate('fExp * sExp * ((ppd / tExp) ^ ftExp)', scope)
+            PPDUtil = '2 * 0.39 * (ppd/2)^0.45'
         }
 
         if(!PPD) {

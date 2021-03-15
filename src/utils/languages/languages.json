@@ -65,8 +65,8 @@
             "portugues": "Valor em Nano:"
         },
         "miner_diff5": {
-            "english": "USD Value:",
-            "portugues": "Valor em USD:"
+            "english": "Currency Value:",
+            "portugues": "Valor em Moeda:"
         },
         "data_prov": {
             "english": "Data provided by CoinGecko\nLast update:",
@@ -133,6 +133,14 @@
         "h_c_2": {
             "english": "Language changer (Only for Admins)",
             "portugues": "Mudança de Idioma (Apenas para Admins)"
+        },
+        "h_c_3": {
+            "english": "Banano Miner & F@H Report Card",
+            "portugues": "Boletim de Reporte do Banano Miner & F@H"
+        },
+        "h_c_3_1": {
+            "english": "User ID from BananoMiner",
+            "portugues": "ID de Usuário do BananoMiner"
         }
 
     }

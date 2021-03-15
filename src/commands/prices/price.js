@@ -7,9 +7,13 @@ module.exports = {
 
         const {guild} = message
         if(args.length > 3) return message.reply(`${lang(guild, "maxArgsExc")} 3`)
-
+        
         const crypto = client.crypto
         let currency = args[1]; let coin = args[0]
+
+        if(currency.includes(',')) {
+            currency = currency.replace(',', '')
+        } 
 
         if(!currency) {
             const noCurrency = new MessageEmbed()

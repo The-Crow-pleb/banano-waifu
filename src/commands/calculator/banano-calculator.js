@@ -3,20 +3,22 @@ const math = require('mathjs')
 const { MessageEmbed } = require("discord.js")
 
 module.exports = {
-    aliases: ['bm', 'bnnm'],
+    aliases: ['bc', 'bnc'],
     description: 'Calcula o quanto de banano você vai receber do f@h',
     run: async(client, message, args) => {
 
         const {guild} = message; const get = client.crypto
-        let PPD = args[0]; let scope; let PPDAlt; let PPDUtil;
+        let PPD = args[0]; let scope; let PPDAlt; let PPDUtil; let currency = args[1]
         
         if(PPD.includes(',')) {
             PPD = PPD.replace(',', '')
-            console.log('ok')
         } else if(PPD.includes('.')) {
             PPD = PPD.replace('.', '')
-            console.log('ok')
         }
+
+        if(!currency) {
+            currency = 'usd'
+        } else currency = args[1]
 
         if(PPD > 3000000) {
             scope = {fExp: 5E-05, ppd:PPD, sExp:112.13}
@@ -36,7 +38,7 @@ module.exports = {
         let data = banano.data
         let btc = await data.map(x => x.current_price);
 
-        let usd = await get.coins.markets({vs_currency: 'usd', ids: 'banano'})
+        let usd = await get.coins.markets({vs_currency: currency, ids: 'banano'})
         let bananoUSD =  PPDAlt * usd.data.map(x => x.current_price)
 
         const nano = await get.coins.markets({vs_currency: 'usd', ids: 'nano'})
@@ -51,7 +53,7 @@ module.exports = {
                 const calculoUm = new MessageEmbed()
                     .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
                     .addFields(
-                        {name: `${lang(guild, "miner_3")} ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n+${lang(guild, "miner_diff3")} ${btc * PPDAlt} Sats\n\n+${lang(guild, "miner_diff4")} ${nanoPrice}\n\n+${lang(guild, "miner_diff5")} ${bananoUSD}\n\n---${lang(guild, "miner_auth")}\`\`\``}
+                        {name: `${lang(guild, "miner_3")} ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n+${lang(guild, "miner_diff3")} ${btc * PPDAlt} Sats\n\n+${lang(guild, "miner_diff4")} ${nanoPrice}\n\n+${lang(guild, "miner_diff5")} ${bananoUSD + ' ' + currency.toUpperCase()}\n\n---${lang(guild, "miner_auth")}\`\`\``}
                     )
                     .setColor("#ffdf00")
                     .setFooter(`${lang(guild, "data_prov")} ${data.map(x=>x.last_updated)}\n${lang(guild, "disclaimer")}`)

@@ -8,17 +8,13 @@ module.exports = {
     run: async(client, message, args) => {
 
         const {guild} = message; const get = client.crypto
-        let PPD = args[0]; let scope; let PPDAlt; let PPDUtil;
+        let PPD = args[0]; let scope; let PPDAlt; let PPDUtil; let currency = 'usd'
         
         if(PPD.includes(',')) {
             PPD = PPD.replace(',', '')
         } else if(PPD.includes('.')) {
             PPD = PPD.replace('.', '')
         }
-
-        if(!currency) {
-            currency = 'usd'
-        } else currency = args[1]
         
         
         if(PPD > 3000000) {

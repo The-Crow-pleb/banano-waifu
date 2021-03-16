@@ -36,6 +36,9 @@ module.exports = {
         let data = banano.data
         let btc = await data.map(x => x.current_price);
 
+        const bananoSat = await get.coins.markets({vs_currency: 'sats', ids: 'banano'})
+        let priceSat = bananoSat.data.map(x=> x.current_price)
+
         let usd = await get.coins.markets({vs_currency: 'usd', ids: 'banano'})
         let bananoUSD =  PPDAlt * usd.data.map(x => x.current_price)
 
@@ -45,13 +48,23 @@ module.exports = {
         
         if(banano.success === true) {
 
+            let correctPriceUsage; let correctFormat;
+            if(PPD < 300) {
+                correctPriceUsage = priceSat
+                correctFormat = 'Full Sats'
+            } else if(PPD > 300) {
+                correctPriceUsage = btc;
+                correctFormat = 'Sats'
+            }
+
+            client.user.setActivity(`${priceSat} sats = 1 Ban!`)
             message.reply(`${lang(guild, "miner_2")} ${PPD}${lang(guild, "miner_2b")}`).then(async(msg) => {
                 const dlt = msg.delete({timeout: 3000})
                 message.channel.startTyping()
                 const calculoUm = new MessageEmbed()
                     .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
                     .addFields(
-                        {name: `${lang(guild, "miner_3")} ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n+${lang(guild, "miner_diff3")} ${btc * PPDAlt} Sats\n\n+${lang(guild, "miner_diff4")} ${nanoPrice}\n\n+${lang(guild, "miner_diff5")} ${bananoUSD + ' ' + currency.toUpperCase()}\n\n---${lang(guild, "miner_auth")}\`\`\``}
+                        {name: `${lang(guild, "miner_3")} ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n+${lang(guild, "miner_diff3")} ${correctPriceUsage * PPDAlt} ${correctFormat}\n\n+${lang(guild, "miner_diff4")} ${nanoPrice}\n\n+${lang(guild, "miner_diff5")} ${bananoUSD + ' ' + currency.toUpperCase()}\n\n---${lang(guild, "miner_auth")}\`\`\``}
                     )
                     .setColor("#ffdf00")
                     .setFooter(`${lang(guild, "data_prov")} ${data.map(x=>x.last_updated)}\n${lang(guild, "disclaimer")}`)

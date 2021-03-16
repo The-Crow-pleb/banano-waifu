@@ -8,7 +8,7 @@ module.exports = {
     run: async(client, message, args) => {
 
         const {guild} = message; const get = client.crypto
-        let PPD = args[0]; let scope; let PPDAlt; let PPDUtil; let currency = args[1]
+        let PPD = args[0]; let scope; let PPDAlt; let PPDUtil;
         
         if(PPD.includes(',')) {
             PPD = PPD.replace(',', '')
@@ -40,7 +40,7 @@ module.exports = {
         let data = banano.data
         let btc = await data.map(x => x.current_price);
 
-        let usd = await get.coins.markets({vs_currency: currency, ids: 'banano'})
+        let usd = await get.coins.markets({vs_currency: 'usd', ids: 'banano'})
         let bananoUSD =  PPDAlt * usd.data.map(x => x.current_price)
 
         const nano = await get.coins.markets({vs_currency: 'usd', ids: 'nano'})

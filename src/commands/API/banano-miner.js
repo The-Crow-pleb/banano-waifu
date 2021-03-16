@@ -9,9 +9,10 @@ module.exports = {
         const {guild} = message
         const username = args[0]
         if(!username) {
-            return console.log('nothing to search for')
+            return message.reply("Correct usage: b!banano-miner <userID>")
         }
 
+        //-----------------------------------------------------------GET REQUEST---------------------------------------------------------------------//
 
         const miner = `https://bananominer.com/user_name/${username}`; const fah = `https://stats.foldingathome.org/api/donor/${username}`;
         const options = {
@@ -35,12 +36,13 @@ module.exports = {
                 .setDescription(`\`\`\`diff\n-${resMiner.error}\`\`\``)
             return message.reply(embedError)
         } 
-        let payment = resMiner.payments.map(x => x.amount)
-        let wus = resMiner.payments.map(x => x.work_units)
-        let scoreMiner = resMiner.payments.map(x => x.score)
-        const user = resMiner.user.name
-        const userId = resMiner.user.id
-        const createdAt = moment(resMiner.user.created_at).locale('pt-br').format('L')
+        // Reading the API map
+        let payment = resMiner.payments.map(x => x.amount); let wus = resMiner.payments.map(x => x.work_units); let scoreMiner = resMiner.payments.map(x => x.score)
+
+        //Retrieving the User Info
+        const user = resMiner.user.name; const userId = resMiner.user.id; const createdAt = moment(resMiner.user.created_at).locale('pt-br').format('L')
+
+        //Formatting the payments, wus and score
         let totalPayment; let totalWusMiner; let totalScoreMiner;
         if (payment.length > 1) {
             let sum = 0
@@ -66,7 +68,7 @@ module.exports = {
         if(totalPayment===undefined) totalPayment = 0; if(totalWusMiner===undefined) totalWusMiner = 0; if(totalScoreMiner===undefined) totalScoreMiner = 0
 
         //------------------------------------------------------------Folding @ Home Report ---------------------------------------------------------------//
-
+        //Retrieving info from the Map and others
         const fetchedFAH = await fetch(fah)
         const bridge2 = await fetchedFAH
         const resFAH = await bridge2.json()
@@ -88,6 +90,6 @@ module.exports = {
                 {name: 'Banano Miner Report', value: `\`\`\`diff\n${BananoMinerReport}\`\`\``},
                 {name: 'F@H Report', value: `\`\`\`diff\n${fahReport}\`\`\``}
             )
-        message.reply(report)
+        message.reply(report) //aaaaaaand, send!
     }   
 }

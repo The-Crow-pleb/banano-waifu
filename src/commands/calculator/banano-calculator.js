@@ -10,6 +10,10 @@ module.exports = {
         const {guild} = message; const get = client.crypto
         let PPD = args[0]; let scope; let PPDAlt; let PPDUtil; let currency = 'usd'
         
+        if(isNaN(PPD)) {
+            return message.reply(`" **${PPD}** " is not a number!\nCorrect usage: b!bnc <PPD> ?currency`)
+        }
+        
         if(PPD.includes(',')) {
             PPD = PPD.replace(',', '')
         } else if(PPD.includes('.')) {

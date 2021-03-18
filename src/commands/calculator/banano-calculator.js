@@ -66,7 +66,7 @@ module.exports = {
                 const dlt = msg.delete({timeout: 3000})
                 message.channel.startTyping()
                 const calculoUm = new MessageEmbed()
-                    .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
+                    .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
                     .addFields(
                         {name: `${lang(guild, "miner_3")} ${PPDUtil}`, value: `\`\`\`diff\n-${lang(guild,"miner_diff1")} ${PPD}\n\n+${lang(guild, "miner_diff2")} ${PPDAlt} Bananos\n\n+${lang(guild, "miner_diff3")} ${correctPriceUsage * PPDAlt} ${correctFormat}\n\n+${lang(guild, "miner_diff4")} ${nanoPrice}\n\n+${lang(guild, "miner_diff5")} ${bananoUSD + ' ' + currency.toUpperCase()}\n\n---${lang(guild, "miner_auth")}\`\`\``}
                     )

@@ -85,7 +85,7 @@ module.exports = {
 
         const report = new MessageEmbed()
             .setColor('#ffe135')
-            .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/815713271918231564.gif?v=1')
+            .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
             .addFields(
                 {name: 'Banano Miner Report', value: `\`\`\`diff\n${BananoMinerReport}\`\`\``},
                 {name: 'F@H Report', value: `\`\`\`diff\n${fahReport}\`\`\``}

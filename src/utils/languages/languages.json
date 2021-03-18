@@ -141,6 +141,10 @@
         "h_c_3_1": {
             "english": "User ID from BananoMiner",
             "portugues": "ID de Usuário do BananoMiner"
+        },
+        "h_c_4": {
+            "english": "Banano & Nano Pricing",
+            "portugues": "Preço do Banano & Nano"
         }
 
     }

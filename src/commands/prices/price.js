@@ -11,10 +11,6 @@ module.exports = {
         const crypto = client.crypto
         let currency = args[1]; let coin = args[0]
 
-        if(currency.includes(',')) {
-            currency = currency.replace(',', '')
-        } 
-
         if(!currency) {
             const noCurrency = new MessageEmbed()
                 .setAuthor(guild.name, guild.iconURL({dynamic: true}))
@@ -28,10 +24,15 @@ module.exports = {
                 .setColor('#ff0000')
             return message.reply(noCurrency)
         }
-        currency.toLowerCase()
-        let up = ' ' + currency.toUpperCase()
+
+        if(currency.includes(',')) {
+            currency = currency.replace(',', '')
+        }
+        currency.toLowerCase(); let up = ' ' + currency.toUpperCase()
+
         let nano = await crypto.coins.markets({vs_currency: currency, ids: coin})
         const data = nano.data
+        
         if(nano.data.error) {
             let error = nano.data.error
             if(error === 'invalid vs_currency') error = `Invalid Currency: ${up}`

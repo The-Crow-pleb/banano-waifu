@@ -7,6 +7,7 @@ module.exports = {
         
         const {guild} = message; const get = client.crypto
 
+        message.channel.startTyping()
         
         const nano = await get.coins.markets({vs_currency: 'btc', ids: 'nano'})
 
@@ -55,7 +56,7 @@ module.exports = {
                 .setAuthor(guild.name, guild.iconURL({dynamic: true}))
                 .setColor("#ffdf00")
                 .setDescription(`${bananoFormat}\n${nanoFormat}`)
-            message.reply(priceEmbed)
+            message.reply(priceEmbed).then(message.channel.stopTyping())
         } else return message.reply("Something wrong happened, try again later.")
     }
 }

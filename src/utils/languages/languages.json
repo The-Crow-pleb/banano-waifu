@@ -46,7 +46,7 @@
         },
         "miner_diff1": {
             "english": "Points Per Day (PPD):",
-            "portugues": "Potos por Dia(PPD):"
+            "portugues": "Pontos por Dia (PPD):"
         },
         "miner_diff2": {
             "english": "Banano Estimative:",
@@ -77,8 +77,8 @@
             "portugues": "Máximo de Argumentos excedidos. Máximo permitido:"
         },
         "disclaimer": {
-            "english": "The values might not be 100% correct because of payment changes.",
-            "portugues": "Os valores talvez não estejam 100% corretos por conta das mudanças de pagamento."
+            "english": "The values might not be 100% correct because of payment changes.\nMade by Tocka for the Banano Community.",
+            "portugues": "Os valores talvez não estejam 100% corretos por conta das mudanças de pagamento.\nFeito por Tocka para a comunidade de Banano."
         },
 
 

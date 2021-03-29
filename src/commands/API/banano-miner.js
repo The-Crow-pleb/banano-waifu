@@ -90,6 +90,7 @@ module.exports = {
                 {name: 'Banano Miner Report', value: `\`\`\`diff\n${BananoMinerReport}\`\`\``},
                 {name: 'F@H Report', value: `\`\`\`diff\n${fahReport}\`\`\``}
             )
+            .setFooter('Made by Tocka Waifu for the Banano Community.')
         message.reply(report) //aaaaaaand, send!
     }   
 }

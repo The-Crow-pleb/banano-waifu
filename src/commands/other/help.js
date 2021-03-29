@@ -16,7 +16,7 @@ module.exports = {
             .addFields(
                 {name: lang(guild, "h_m"), value: lang(guild, "h_m_1")},
                 {name: lang(guild, "h_m2"), value: `[My Github](https://github.com/The-Crow-pleb/banano-calculator)\n[Banano Discord Server](https://chat.banano.cc/)\n[Banano Reddit](https://www.reddit.com/r/banano/)\n[Invite me!](https://discord.com/oauth2/authorize?client_id=819860981320253470&scope=bot&permissions=347200)`},
-                {name: lang(guild, "h_d"), value: 'Nano: nano_1t6tj3zqwjxsxda7o6wb6gzc65y6h1qifoysn9if9x8nj4bh7igbpao46szm\nBanano: ban_1t6tj3zqwjxsxda7o6wb6gzc65y6h1qifoysn9if9x8nj4bh7igbpao46szm'}
+                {name: lang(guild, "h_d"), value: '```Nano: nano_1tocka3s4q3iaws7kjdt7tx87nzzjaqaiibiyxc3f9gcqjx4gwbwi1bedcth\nBanano: ban_1tocka3s4q3iaws7kjdt7tx87nzzjaqaiibiyxc3f9gcqjx4gwbwi1bedcth```'}
             )
         const commandPage = new MessageEmbed()
             .setAuthor(guild.name, guild.iconURL({dynamic: true}))

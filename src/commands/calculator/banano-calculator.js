@@ -14,15 +14,17 @@ module.exports = {
             return message.reply(`" **${PPD}** " is not a number!\nCorrect usage: b!bnc <PPD> ?currency`)
         }
         
+        if(!currency) {
+            currency = 'usd'
+        } else if(!PPD) {
+            return message.reply(lang(guild, "miner")).then(message.channel.stopTyping())
+        }      
+
         if(PPD.includes(',')) {
             PPD = PPD.replace(',', '')
         } else if(PPD.includes('.')) {
             PPD = PPD.replace('.', '')
-        }
-        
-        if(!currency) {
-            currency = 'usd'
-        }
+        }  
 
         const selC = await get.coins.markets({vs_currency: currency, ids: 'banano'})
         if(selC.data.error) {
@@ -38,10 +40,6 @@ module.exports = {
             scope = {fExp: 2, sExp:0.39, tExp:2, ftExp:0.45 , ppd:PPD}
             PPDAlt = math.evaluate('fExp * sExp * ((ppd / tExp) ^ ftExp)', scope)
             PPDUtil = '2 * 0.39 * (ppd/2)^0.45'
-        }
-
-        if(!PPD) {
-            return message.reply(lang(guild, "miner")).then(message.channel.stopTyping())
         }
 
         const banano = await get.coins.markets({vs_currency: 'btc', ids: 'banano'})

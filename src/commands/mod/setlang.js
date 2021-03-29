@@ -34,7 +34,7 @@ module.exports = {
                     .setColor("RED")
                     .setDescription(`
                         The following language is not supported!:
-                        O idioma a seguir não é suportada!:
+                        O idioma a seguir não é suportado!:
                     `)
                     .addFields(
                         {name: 'Not Supported: || Não suportado:',value: `\`\`\`${targetLanguage}\`\`\``}

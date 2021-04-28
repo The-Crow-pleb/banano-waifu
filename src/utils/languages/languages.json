@@ -80,6 +80,10 @@
             "english": "The values might not be 100% correct because of payment changes.\nMade by Tocka for the Banano Community.",
             "portugues": "Os valores talvez não estejam 100% corretos por conta das mudanças de pagamento.\nFeito por Tocka para a comunidade de Banano."
         },
+        "click": {
+            "english": "Click Here",
+            "portugues": "Clique Aqui"
+        },
 
 
         "h": {
@@ -145,7 +149,29 @@
         "h_c_4": {
             "english": "Banano & Nano Pricing",
             "portugues": "Preço do Banano & Nano"
+        },
+
+        "ex_h": {
+            "english": "All exchanges listed below:",
+            "portugues": "Todas exchanges listadas abaixo:"
+        },
+        "ex_faq": {
+            "english": "This is just a reminder:",
+            "portugues": "Isso é apenas um lembrete:"
+        },
+        "ex_faq_1": {
+            "english": "Please, NEVER let all of your coins in a exchange wallet. Not your seeds, not your coins.",
+            "portugues": "Por favor, NUNCA deixe todas as suas moedas em uma carteira de exchange. Não são suas seeds, não são suas moedas."
+        },
+        "ex_faq_2": {
+            "english": "Reminder:",
+            "portugues": "Lembrete:"
+        },
+        "ex_list": {
+            "english": "Other Exchanges:",
+            "portugues": "Outras exchanges:"
         }
+
 
     }
 }

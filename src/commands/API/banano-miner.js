@@ -34,7 +34,7 @@ module.exports = {
                     .setColor("#ac0404")
                     .setTitle(`Error!`)
                     .setDescription(`\`\`\`diff\n-${resMiner.error}\`\`\``)
-                return message.reply(embedError)
+                message.reply(embedError); message.channel.stopTyping(); return 
             } 
             // Reading the API map
             let payment = resMiner.payments.map(x => x.amount); let wus = resMiner.payments.map(x => x.work_units); let scoreMiner = resMiner.payments.map(x => x.score)

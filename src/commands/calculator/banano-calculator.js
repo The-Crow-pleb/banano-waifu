@@ -10,21 +10,13 @@ module.exports = {
             const {guild} = message; const get = client.crypto
             let PPD = args[0]; let scope; let PPDAlt; let PPDUtil; let currency = args[1]
             
-            if(isNaN(PPD)) {
-                return message.reply(`" **${PPD}** " is not a number!\nCorrect usage: b!bnc <PPD> ?currency`)
-            }
+            if(isNaN(PPD)) {return message.reply(`" **${PPD}** " is not a number!\nCorrect usage: b!bnc <PPD> ?currency`)}
             
-            if(!currency) {
-                currency = 'usd'
-            } else if(!PPD) {
-                return message.reply(lang(guild, "miner")).then(message.channel.stopTyping())
-            }      
+            if(!currency) {currency = 'usd'}
+            else if(!PPD) {return message.reply(lang(guild, "miner")).then(message.channel.stopTyping())}      
     
-            if(PPD.includes(',')) {
-                PPD = PPD.replace(',', '')
-            } else if(PPD.includes('.')) {
-                PPD = PPD.replace('.', '')
-            }  
+            if(PPD.includes(',')) {PPD = PPD.replace(',', '')} 
+            else if(PPD.includes('.')) {PPD = PPD.replace('.', '')}  
     
             const selC = await get.coins.markets({vs_currency: currency, ids: 'banano'})
             if(selC.data.error) {

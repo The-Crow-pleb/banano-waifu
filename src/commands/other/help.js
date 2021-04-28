@@ -28,6 +28,7 @@ module.exports = {
                 {name: lang(guild, "h_c_2"), value: `\`\`\`${PREFIX}setl <english/portugues>\`\`\``},
                 {name: lang(guild, "h_c_3"), value: `\`\`\`${PREFIX}banano-miner <${lang(guild, "h_c_3_1")}>\`\`\``},
                 {name: lang(guild, "h_c_4"), value: `\`\`\`${PREFIX}bprice\`\`\``},
+                {name: 'Exchanges', values: `\`\`\`${PREFIX}exchange-list\`\`\``},
                 {name: 'Ping & Uptime', value: `\`\`\`${PREFIX}ping\`\`\``},
             )
         pgs = [mainPage, commandPage]

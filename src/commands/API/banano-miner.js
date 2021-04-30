@@ -94,7 +94,7 @@ module.exports = {
             message.reply(report).then(message.channel.stopTyping()) //aaaaaaand, send!
         } catch (error) {
             message.channel.stopTyping()
-            return message.reply(`Something went wrong! Please, rerun this command. If this continue, please, open an issue at my github.\n\`\`\`-diff\n-Error:\n+${error}\`\`\``)
+            return message.reply(`Something went wrong! Please, rerun this command. If this continue, please, open an issue at my github.\n\`\`\`diff\n-Error:\n+${error}\`\`\``)
         }
     }   
 }

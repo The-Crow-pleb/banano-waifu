@@ -27,15 +27,6 @@ module.exports = {
             scope = {fExp: 0.35, sExp: (PPD/2), tExp: 0.44}
             PPDAlt = math.evaluate('fExp * sExp ^ tExp', scope)
             PPDUtil = '0.35 * (PPD / 2) ^ 0.44'
-            // if(PPD > 3000000) {
-            //     scope = {fExp:2, sExp:4E-12, tExp:2, fExp:2, ftExp: 2E-05, sxExp:2, stExp: 224.65, ppd: PPD}
-            //     PPDAlt = math.evaluate('fExp * ((sExp *(ppd / tExp)) ^ fExp + ftExp * (ppd / sxExp) + stExp)', scope)
-            //     PPDUtil = '2 * ((4E-12*(PPD/2))^2 + 2E-05*(PPD/2) + 224.65)'
-            // } else {
-            //     scope = {fExp: 2, sExp:0.39, tExp:2, ftExp:0.45 , ppd:PPD}
-            //     PPDAlt = math.evaluate('fExp * sExp * ((ppd / tExp) ^ ftExp)', scope)
-            //     PPDUtil = '2 * 0.39 * (ppd/2)^0.45'
-            // }
     
             const banano = await get.coins.markets({vs_currency: 'btc', ids: 'banano'})
             let data = banano.data
@@ -76,7 +67,7 @@ module.exports = {
                         .setColor("#ffdf00")
                         .setFooter(`${lang(guild, "data_prov")} ${data.map(x=>x.last_updated)}\n${lang(guild, "disclaimer")}`)
                     await dlt; message.channel.stopTyping()
-                    message.reply(calculoUm)
+                    message.reply(calculoUm).then(message.channel.stopTyping())
                 })
             }
         } catch (error) {

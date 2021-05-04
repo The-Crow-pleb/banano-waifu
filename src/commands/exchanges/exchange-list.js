@@ -2,7 +2,7 @@ const {MessageEmbed} = require('discord.js'); const pages = require('discord.js-
 
 module.exports = {
     description: '', aliases: ['el', 'exchange', 'exh'],
-    run: async(client, messages, args) => {
+    run: async(client, message, args) => {
         
         const {guild} = message
 

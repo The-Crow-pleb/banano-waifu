@@ -74,7 +74,8 @@ module.exports = {
             let missingPayout = fahPoints - totalScoreMined
             scope = {fExp: 0.35, sExp: (missingPayout/2), tExp: 0.44}
             let missingBananos = math.evaluate('fExp * sExp ^ tExp', scope)
-            let missingReport = `+Missing payment in points: ${missingPayout}\n\n+Missing payment in bananos (estimated): ${missingBananos}`
+            let missingWus = fahWus - totalWusMined 
+            let missingReport = `+Missing payment in points: ${missingPayout}\n\n+Missing payment in bananos (estimated): ${missingBananos}\n\n+Unpaid WUS: ${missingWus}\n+Last WU @: ${lastWu}`
 
             //------------------------------------------------------ Report Message -----------------------------------------------------------------------//
 

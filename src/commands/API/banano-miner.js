@@ -35,7 +35,7 @@ module.exports = {
                     .setTitle(`Banano Miner Error!`)
                     .setDescription(`\`\`\`diff\n-${resMiner.error}\`\`\``)
                 message.reply(embedError); message.channel.stopTyping(); return 
-            } 
+            }
             // Reading the API map
             let payment = resMiner.payments.map(x => x.amount); let wus = resMiner.payments.map(x => x.work_units); let scoreMined = resMiner.payments.map(x => x.score)
 
@@ -46,17 +46,16 @@ module.exports = {
             let totalPayment; let totalWusMined; let totalScoreMined;
             if (payment.length > 1) {
                 let sum = 0
-                for(let payments in payment) {
-                    sum += payment[payments]
-                }
+                for(let payments in payment) {sum += payment[payments]}
                 totalPayment = sum
             } else totalPayment = payment[0]
 
-            if(payment===undefined) totalPayment = 0; 
-            if(wus===undefined) totalWusMined = 0; else totalWusMined = wus[0]
-            if(scoreMined===undefined) totalScoreMined = 0; else totalScoreMined = scoreMined[0]
-            
+            if(totalPayment===undefined) totalPayment = 0; 
+            if(totalWusMined===undefined) totalWusMined = 0; else totalWusMined = wus[0]
+            if(totalScoreMined===undefined) totalScoreMined = 0; else totalScoreMined = scoreMined[0]
+
             //------------------------------------------------------------Folding @ Home Report ---------------------------------------------------------------//
+
             //Retrieving info from the Map and others
             const fetchedFAH = await fetch(fah)
             const bridge2 = await fetchedFAH
@@ -70,6 +69,7 @@ module.exports = {
             
             
             //----------------------------------------------------------If there's unpaid points etc-----------------------------------------------------------||
+            
             let missingBananos; let missingWus;
             let missingPayout = fahPoints - totalScoreMined
             scope = {fExp: 0.35, sExp: (missingPayout/2), tExp: 0.44}

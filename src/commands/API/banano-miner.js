@@ -50,9 +50,9 @@ module.exports = {
                 totalPayment = sum
             } else totalPayment = payment[0]
 
-            if(totalPayment===undefined) totalPayment = 0; 
-            if(totalWusMined===undefined) totalWusMined = 0; else totalWusMined = wus[0]
-            if(totalScoreMined===undefined) totalScoreMined = 0; else totalScoreMined = scoreMined[0]
+            if(payment.length === 0) totalPayment = 0;
+            if(wus.length === 0) totalWusMined = 0; else totalWusMined = wus[0]
+            if(scoreMined.length===0) totalScoreMined = 0; else totalScoreMined = scoreMined[0]
 
             //------------------------------------------------------------Folding @ Home Report ---------------------------------------------------------------//
 

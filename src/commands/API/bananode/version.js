@@ -12,7 +12,7 @@ module.exports = {
         message.channel.startTyping()
         let fetched = await fetch(process.env.url, options)
         let jsonForm = await fetched.json()
-        console.log(jsonForm)
+
         if(fetched.statusText === 'OK') {
             const peersEmbed = new MessageEmbed()
                 .setColor('#ffe135')

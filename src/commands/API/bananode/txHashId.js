@@ -4,6 +4,8 @@ module.exports = {
     description: '', aliases: ['txid', 'blockinfo'],
     run: async(client, message, args) => {
 
+        return message.reply('Not completed yet!\nCheck: https://github.com/The-Crow-pleb/banano-calculator')
+
         const txid = args[0]
         if(!txid || !txid.match('^[a-fA-F0-9]{64}$')) return message.reply("Invalid hash")
         const {guild} = message
@@ -12,8 +14,15 @@ module.exports = {
             body: JSON.stringify({ "action": "block_info", "json_block": "true", "hash": `${txid}` })
         }
         message.channel.startTyping()
-        let fetched = await fetch(process.env.url, options)
+        let fetched = await fetch('http://api-beta.banano.cc:7070', options)
         let jsonForm = await fetched.json()
+        let format = 
+        `\`\`\`json
+            {
+                
+            }
+        \`\`\``
+        console.log(jsonForm)
         if(fetched.statusText === 'OK') {
             const peersEmbed = new MessageEmbed()
                 .setColor('#ffe135')

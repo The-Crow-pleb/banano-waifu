@@ -11,7 +11,9 @@
 
 - Able to calculate your estimated earning from f@h using your PPD estimate
 - Able to calculate the current prices for banano
+- Able to check how many blocks are in the network (WIP [Work in Progress])
+- Open Sourced!
 
 ---
 
-Got any ideas or found any bugs? Please, report at the [Support Server](https://discord.gg/NWAs6v4AdX) or directly to Tocka Waifu#2656 @ Discord
+Got any ideas or found any bugs? Please, report at the [Support Server](https://discord.gg/NWAs6v4AdX) or directly to Tocka Waifu#0456 @ Discord

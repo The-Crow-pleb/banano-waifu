@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/The-Crow-pleb/banano-calculator#readme",
   "dependencies": {
+    "check-disk-space": "^2.1.0",
     "coingecko-api": "^1.0.10",
     "discord.js": "^12.5.3",
     "discord.js-pagination": "^1.0.3",

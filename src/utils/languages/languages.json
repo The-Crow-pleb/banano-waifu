@@ -150,6 +150,26 @@
             "english": "Banano & Nano Pricing",
             "portugues": "Preço do Banano & Nano"
         },
+        "h_c_5": {
+            "english": "Bot Info:",
+            "portugues": "Informações do Bot:"
+        },
+        "node": {
+            "english": "Node Commands:",
+            "portugues": "Comandos do Node:"
+        },
+        "node_1": {
+            "english": "Block Count:",
+            "portugues": "Contagem de Blocos:"
+        },
+        "node_2": {
+            "english": "Node Info:",
+            "portugues": "Informações do Node:"
+        },
+        "node_3": {
+            "english": "Peers Count:",
+            "portugues": "Contagem de Nodes Conectados:"
+        },
 
         "ex_h": {
             "english": "All exchanges listed below:",

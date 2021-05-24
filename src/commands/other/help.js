@@ -16,7 +16,7 @@ module.exports = {
             .addFields(
                 {name: lang(guild, "h_m"), value: lang(guild, "h_m_1")},
                 {name: lang(guild, "h_m2"), value: `[My Github](https://github.com/The-Crow-pleb/banano-calculator)\n[Banano Discord Server](https://chat.banano.cc/)\n[Banano Reddit](https://www.reddit.com/r/banano/)\n[Invite me!]( https://discord.com/oauth2/authorize?client_id=819860981320253470&scope=bot&permissions=388160)`},
-                {name: lang(guild, "h_d"), value: '```Nano: nano_1tocka3s4q3iaws7kjdt7tx87nzzjaqaiibiyxc3f9gcqjx4gwbwi1bedcth\nBanano: ban_1tocka3s4q3iaws7kjdt7tx87nzzjaqaiibiyxc3f9gcqjx4gwbwi1bedcth```'}
+                {name: lang(guild, "h_d"), value: '```Nano: nano_1tocka13zi1ab9zyu6a9e9e6ipg16anaxhqfsz9a3swfsux8id94zo3j3kej\nBanano: ban_1tocka13zi1ab9zyu6a9e9e6ipg16anaxhqfsz9a3swfsux8id94zo3j3kej```'}
             )
         const commandPage = new MessageEmbed()
             .setAuthor(guild.name, guild.iconURL({dynamic: true}))
@@ -30,8 +30,18 @@ module.exports = {
                 {name: lang(guild, "h_c_4"), value: `\`\`\`${PREFIX}bprice\`\`\``},
                 {name: 'Exchanges', value: `\`\`\`${PREFIX}exchange-list\`\`\``},
                 {name: 'Ping & Uptime', value: `\`\`\`${PREFIX}ping\`\`\``},
+                {name: lang(guild, "h_c_5"), value: `\`\`\`${PREFIX}info\`\`\``}
             )
-        pgs = [mainPage, commandPage]
+        const nodePage = new MessageEmbed()
+            .setAuthor(guild.name, guild.iconURL({dynamic: true}))
+            .setColor("#ffdf00 ")
+            .setTitle(lang(guild, "node"))
+            .addFields(
+                {name: lang(guild, "node_1"), value: `\`\`\`${PREFIX}blocks\`\`\``},
+                {name: lang(guild, "node_2"), value: `\`\`\`${PREFIX}version\`\`\``},
+                {name: lang(guild, "node_3"), value: `\`\`\`${PREFIX}peers\`\`\``}
+            )
+        pgs = [mainPage, commandPage, nodePage]
         pages(message, pgs)
     }
 }

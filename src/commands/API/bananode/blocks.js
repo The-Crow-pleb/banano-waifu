@@ -4,16 +4,15 @@ module.exports = {
     description: '', aliases: [],
     run: async(client, message, args) => {
 
-        const {guild} = message
-        let options = { method: "post", body: JSON.stringify({ "action": "block_count" }) }
-        message.channel.startTyping()
-        let fetched = await fetch(process.env.url, options)
-        let jsonForm = await fetched.json()
-        let diff = await fetch('https://api-beta.banano.cc:443', options)
-        let diffJson = await diff.json()
+        try {
+            const {guild} = message; message.channel.startTyping()
+            let options = { method: "post", body: JSON.stringify({ "action": "block_count" }) }
+            let fetched = await fetch(process.env.url, options)
+            let jsonForm = await fetched.json()
+            let diff = await fetch('https://api-beta.banano.cc:443', options)
+            let diffJson = await diff.json()
 
-        if(fetched.statusText === 'OK') {
-            const peersEmbed = new MessageEmbed()
+            const blocksEmbed = new MessageEmbed()
                 .setColor('#ffe135')
                 .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
                 .setDescription(`Block Count:\n\`\`\`diff\n-Count: ${parseFloat(jsonForm.count).toLocaleString('en-US')}\n+Unchecked: ${parseFloat(jsonForm.unchecked).toLocaleString('en-US')}\n-Cemented: ${parseFloat(jsonForm.cemented).toLocaleString('en-US')}\`\`\``)
@@ -21,12 +20,16 @@ module.exports = {
             if(jsonForm.unchecked < diffJson.count) {
                 const count = diffJson.count - jsonForm.unchecked
                 const form = `**Block Count:**\`\`\`diff\n-Count: ${parseFloat(jsonForm.count).toLocaleString('en-US')}\n+Unchecked: ${parseFloat(jsonForm.unchecked).toLocaleString('en-US')}\n-Cemented: ${parseFloat(jsonForm.cemented).toLocaleString('en-US')}\`\`\`\n**Amount of Unchecked Blocks till Full Sync:**\n\`\`\`diff\n-Count: ${parseFloat(count).toLocaleString('en-US')}\`\`\``
-                peersEmbed.setDescription(form)
-                return message.reply(peersEmbed).then(message.channel.stopTyping())
+                blocksEmbed.setDescription(form)
+                return message.reply(blocksEmbed).then(message.channel.stopTyping())
+            } else if (jsonForm.cemented = jsonForm.count) {
+                const form = `**Block Count:**\`\`\`diff\n-Count: ${parseFloat(jsonForm.count).toLocaleString('en-US')}\n+Unchecked: ${parseFloat(jsonForm.unchecked).toLocaleString('en-US')}\`\`\``
+                blocksEmbed.setDescription(form)
+                return message.reply(blocksEmbed).then(message.channel.stopTyping())
             } else {
-                message.reply(peersEmbed).then(message.channel.stopTyping())
+                return message.reply(blocksEmbed).then(message.channel.stopTyping())
             }
-        } else {
+        } catch (error) {
             const errorEmbed = new MessageEmbed()
                 .setColor('#ffe135')
                 .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')

@@ -1,26 +1,26 @@
 const { MessageEmbed } = require('discord.js')
 const { default: fetch } = require('node-fetch')
 module.exports = {
-    description: '', aliases: [],
+    description: '', aliases: ['ac', 'accinfo'],
     run: async(client, message, args) => {
 
         try {
 
-            const {guild} = message; message.channel.startTyping()
-            let options = {method: "post",body: JSON.stringify({ "action": "peers" })}
+            const account = args[0];const {guild} = message; message.channel.startTyping()
+            if(!account || !account.match('^ban_[13][13456789abcdefghijkmnopqrstuwxyz]{59}$')) return message.reply("Invalid hash")
+            let options = {method: "post",body: JSON.stringify({ "action": "account_info", "account": `${account}` })}
             let fetched = await fetch(process.env.url, options)
             let jsonForm = await fetched.json()
-            let peersLength = Object.keys(jsonForm.peers).length
 
-            const peersEmbed = new MessageEmbed()
+            const account_embed = new MessageEmbed()
                 .setColor('#ffe135')
                 .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
-                .setTitle('Node connected to:')
-                .setDescription(`\`\`\`diff\n+${peersLength} peers\`\`\``)
+                .setTitle('Account Info:')
+                .setDescription(`\`\`\`json\n${JSON.stringify(jsonForm, null, '\t')}\`\`\``)
                 .setFooter('Made by Tocka Waifu for the Banano Community.')
-            message.reply(peersEmbed)
+            message.reply(account_embed)
             message.channel.stopTyping() 
-
+            
         } catch (error) {
             const errorEmbed = new MessageEmbed()
                 .setColor('#ffe135')

@@ -30,7 +30,7 @@ module.exports = {
                 {name: lang(guild, "h_c_4"), value: `\`\`\`${PREFIX}bprice\`\`\``},
                 {name: 'Exchanges', value: `\`\`\`${PREFIX}exchange-list\`\`\``},
                 {name: 'Ping & Uptime', value: `\`\`\`${PREFIX}ping\`\`\``},
-                {name: lang(guild, "h_c_5"), value: `\`\`\`${PREFIX}info\`\`\``}
+                {name: lang(guild, "h_c_5"), value: `\`\`\`${PREFIX}info\`\`\``},
             )
         const nodePage = new MessageEmbed()
             .setAuthor(guild.name, guild.iconURL({dynamic: true}))
@@ -39,7 +39,9 @@ module.exports = {
             .addFields(
                 {name: lang(guild, "node_1"), value: `\`\`\`${PREFIX}blocks\`\`\``},
                 {name: lang(guild, "node_2"), value: `\`\`\`${PREFIX}version\`\`\``},
-                {name: lang(guild, "node_3"), value: `\`\`\`${PREFIX}peers\`\`\``}
+                {name: lang(guild, "node_3"), value: `\`\`\`${PREFIX}peers\`\`\``},
+                {name: 'Block Hash Info', value: `\`\`\`${PREFIX}blockinfo\`\`\``},
+                {name: 'Banano Acc. Info', value: `\`\`\`${PREFIX}accinfo\`\`\``}
             )
         pgs = [mainPage, commandPage, nodePage]
         pages(message, pgs)

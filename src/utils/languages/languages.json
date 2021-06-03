@@ -204,8 +204,8 @@
             "portugues": "✅ O Node está Online!"
         },
         "nodecurl": {
-            "english": "You can ping http://node.tockanest.com (or access [The Node 'Website'](http://node.tockanest.com:7072) ).\nTo use curl requests, use: http://node.tockanest.com:7072",
-            "portugues": "Você pode pingar http://node.tockanest.com (ou acessar o ['Site do Node'](http://node.tockanest.com:7072) )\nPara usar curl requests, utilize: http://node.tockanest.com:7072"
+            "english": "You can ping http://node.tockanest.com (or access [The Node 'Website'](http://node.tockanest.com:7072), if it still shows the node as offline, press F5 and reload the page, the monitor can be buggy sometimes. ).\nTo use curl requests, use: http://node.tockanest.com:7072",
+            "portugues": "Você pode pingar http://node.tockanest.com (ou acessar o ['Site do Node'](http://node.tockanest.com:7072), se ainda mostrar o node como offline, pressione F5 e recarregue a página, o monitor as vezes é bugado. )\nPara usar curl requests, utilize: http://node.tockanest.com:7072"
         }
 
 

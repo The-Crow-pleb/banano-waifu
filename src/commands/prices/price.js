@@ -41,19 +41,19 @@ module.exports = {
                     .setAuthor(guild.name, guild.iconURL({dynamic: true}))
                     .setTitle(lang(guild, "crypt_err"))
                     .addField(lang(guild, "crypt_err2"), `\`\`\`${error}\`\`\``)
-                return message.reply(errorEmbed)
+                return message.reply(errorEmbed).then(message.channel.stopTyping())
             }else if(data.map(x => x.name).length === 0) {
-                return message.reply(`**${coin.toUpperCase()}** ${lang(guild, "nac")}`).then(msg => msg.delete({timeout: 10000}))
+                return message.reply(`**${coin.toUpperCase()}** ${lang(guild, "nac")}`).then(msg => {msg.delete({timeout: 10000}); message.channel.stopTyping()})
             } else if(nano.success === true) {
                 let amount = args[2]
     
                 if(!amount) {
-                    return message.reply(`${lang(guild, "noAmount")}`).then(msg => msg.delete({timeout: 10000}))
+                    return message.reply(`${lang(guild, "noAmount")}`).then(msg => {msg.delete({timeout: 10000}); message.channel.stopTyping()})
                 } 
                 if(amount.includes(',')) {
                     amount = amount.replace(',', '.')
                 } else if(isNaN(amount)) {
-                    return message.reply(`**${amount.toUpperCase()}** ${lang(guild, "nan")}`).then(msg => msg.delete({timeout: 10000}))
+                    return message.reply(`**${amount.toUpperCase()}** ${lang(guild, "nan")}`).then(msg => {msg.delete({timeout: 10000}); message.channel.stopTyping()})
                 } 
     
                 let price = await data.map(x => x.current_price); let name = await data.map(x => x.name)
@@ -66,7 +66,7 @@ module.exports = {
                     )
                     .setColor("RANDOM")
                     .setThumbnail(data.map(x => x.image).toString())
-                message.reply(finalPrice)
+                message.reply(finalPrice).then(message.channel.stopTyping())
             }
         } catch (error) {
             message.channel.stopTyping()

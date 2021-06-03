@@ -10,10 +10,11 @@
 <p align="center">Features:</p>
 
 - Able to calculate your estimated earning from f@h using your PPD estimate
-- Able to calculate the current prices for banano
-- Able to check how many blocks are in the network (WIP [Work in Progress])
-- Open Sourced!
+- Able to calculate the current prices for banano and other cryptos!
+- Full integration with a Banano node, able to check for block count, block info, and others!
+- Full Open Sourced!
+- Made entirely with NodeJS.
 
 ---
 
-Got any ideas or found any bugs? Please, report at the [Support Server](https://discord.gg/NWAs6v4AdX) or directly to Tocka Waifu#0456 @ Discord
+Got any ideas or found any bugs? Please, open an issue at this github or report directly to Tocka#0456 on Discord.

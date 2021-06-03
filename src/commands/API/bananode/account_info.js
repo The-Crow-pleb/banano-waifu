@@ -7,7 +7,7 @@ module.exports = {
         try {
 
             const account = args[0];const {guild} = message; message.channel.startTyping()
-            if(!account || !account.match('^ban_[13][13456789abcdefghijkmnopqrstuwxyz]{59}$')) return message.reply("Invalid hash")
+            if(!account || !account.match('^ban_[13][1-9a-z]{59}$')) return message.reply("Invalid hash")
             let options = {method: "post",body: JSON.stringify({ "action": "account_info", "account": `${account}` })}
             let fetched = await fetch(process.env.url, options)
             let jsonForm = await fetched.json()

@@ -107,7 +107,7 @@
             "portugues": "Links úteis:"
         },
         "h_d": {
-            "english": "Donations (Not necessary, but always welcomed)",
+            "english": "Donations (Not necessary)",
             "portugues": "Doações (Não necessárias, mas sempre bem-vindas)"
         },
         "h3": {
@@ -190,6 +190,22 @@
         "ex_list": {
             "english": "Other Exchanges:",
             "portugues": "Outras exchanges:"
+        },
+        "rep": {
+            "english": "Our rep. wallet is: [ban_36pcrz51goremmjj1uwdxen67dxj9w6exnrj7bjafb7b1az8zkcbfmbe19gk](https://creeper.banano.cc/explorer/account/ban_36pcrz51goremmjj1uwdxen67dxj9w6exnrj7bjafb7b1az8zkcbfmbe19gk/history)",
+            "portugues": "A wallet de nosso rep. é: [ban_36pcrz51goremmjj1uwdxen67dxj9w6exnrj7bjafb7b1az8zkcbfmbe19gk](https://creeper.banano.cc/explorer/account/ban_36pcrz51goremmjj1uwdxen67dxj9w6exnrj7bjafb7b1az8zkcbfmbe19gk/history)"
+        },
+        "rep2": {
+            "english": "Use our rep!:\n(It show as offline in the creeper, but you can do curl requests or use the node command 'b!node' to check if the node is online)",
+            "portugues": "Use nosso rep!:\n(O creeper mostra o rep como offline, porém o node está online, você pode utilizar curl requests para verificar ou utilizar o comando 'b!node' para verificar)"
+        },
+        "nodecheck": {
+            "english": "✅ Node is Online!",
+            "portugues": "✅ O Node está Online!"
+        },
+        "nodecurl": {
+            "english": "You can ping http://node.tockanest.com (or access [The Node 'Website'](http://node.tockanest.com:7072) ).\nTo use curl requests, use: http://node.tockanest.com:7072",
+            "portugues": "Você pode pingar http://node.tockanest.com (ou acessar o ['Site do Node'](http://node.tockanest.com:7072) )\nPara usar curl requests, utilize: http://node.tockanest.com:7072"
         }
 
 

@@ -17,7 +17,7 @@ module.exports = {
                 .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
                 .setDescription(`Block Count:\n\`\`\`diff\n-Count: ${parseFloat(jsonForm.count).toLocaleString('en-US')}\n+Unchecked: ${parseFloat(jsonForm.unchecked).toLocaleString('en-US')}\n-Cemented: ${parseFloat(jsonForm.cemented).toLocaleString('en-US')}\`\`\``)
                 .setFooter('Made by Tocka Waifu for the Banano Community.')
-            if(jsonForm.unchecked < diffJson.count) {
+            if(jsonForm.unchecked > diffJson.unchecked) {
                 const count = diffJson.count - jsonForm.unchecked
                 const form = `**Block Count:**\`\`\`diff\n-Count: ${parseFloat(jsonForm.count).toLocaleString('en-US')}\n+Unchecked: ${parseFloat(jsonForm.unchecked).toLocaleString('en-US')}\n-Cemented: ${parseFloat(jsonForm.cemented).toLocaleString('en-US')}\`\`\`\n**Amount of Unchecked Blocks till Full Sync:**\n\`\`\`diff\n-Count: ${parseFloat(count).toLocaleString('en-US')}\`\`\``
                 blocksEmbed.setDescription(form)
@@ -32,7 +32,7 @@ module.exports = {
         } catch (error) {
             const errorEmbed = new MessageEmbed()
                 .setColor('#ffe135')
-                .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
+                .setAuthor(message.author.username, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
                 .setDescription(`Oops, Something went wrong!:\n\n\`\`\`diff\n +Error: ${error}\`\`\``)
                 .setFooter('Made by Tocka Waifu for the Banano Community.')
             message.reply(errorEmbed)

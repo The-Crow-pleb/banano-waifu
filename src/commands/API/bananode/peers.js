@@ -24,7 +24,7 @@ module.exports = {
         } catch (error) {
             const errorEmbed = new MessageEmbed()
                 .setColor('#ffe135')
-                .setAuthor(guild.name, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
+                .setAuthor(message.author.username, 'https://cdn.discordapp.com/emojis/821190159995371521.gif?v=1')
                 .setDescription(`Oops, Something went wrong!:\n\n\`\`\`diff\n +Error: ${error}\`\`\``)
                 .setFooter('Made by Tocka Waifu for the Banano Community.')
             message.reply(errorEmbed)

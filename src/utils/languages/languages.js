@@ -1,5 +1,5 @@
 const mongoose = require('../../configs/dbs/dbLogin')
-const langSchema = require('../../configs/dbs/schemas/language-schema')
+const guildConfig = require('../../configs/dbs/schemas/guildConfig')
 const languages = require('./languages.json')
 
 const guildLanguages = {}
@@ -8,10 +8,8 @@ const loadLangs = async(client) => {
         for (const guild of client.guilds.cache) {
             const guildId = guild[0]
 
-            const result = await langSchema.findOne({
-                _id: guildId,
-            })
-            guildLanguages[guildId] = result ? result.language : await langSchema.findOneAndUpdate({_id: guildId, }, {_id: guildId, language: 'english',}, {upsert: true,})
+            const result = await guildConfig.findOne({_id: guildId})
+            guildLanguages[guildId] = result ? result.language : await guildConfig.findOneAndUpdate({_id: guildId, }, {_id: guildId, language: 'english',}, {upsert: true,})
         }
     })
 }

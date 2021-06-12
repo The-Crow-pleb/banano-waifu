@@ -1,4 +1,4 @@
-const langSchema = require('../../configs/dbs/schemas/language-schema'); const { languages } = require('../../utils/languages/languages.json')
+const guildConfig = require('../../configs/dbs/schemas/guildConfig'); const { languages } = require('../../utils/languages/languages.json')
 const { setLanguage } = require('../../utils/languages/languages'); const { MessageEmbed } = require('discord.js')
 const page = require('discord.js-pagination')
 
@@ -55,7 +55,7 @@ module.exports = {
                 return
             }
 
-            const sucess = new MessageEmbed()
+            const success = new MessageEmbed()
                 .setAuthor(guild.name, guild.iconURL({dynamic: true}))
                 .setDescription(`
                     The language has been set!
@@ -65,9 +65,9 @@ module.exports = {
                     {name: 'New language: || Novo idioma:',value: `\`\`\`${targetLanguage}\`\`\``}
                 )
                 .setColor("RANDOM")
-            message.reply(sucess)
+            message.reply(success)
 
-            await langSchema.findOneAndUpdate(
+            await guildConfig.findOneAndUpdate(
                 {_id: guild.id},
                 {_id: guild.id,language: targetLanguage,},
                 {upsert: true,}

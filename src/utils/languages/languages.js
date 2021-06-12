@@ -19,9 +19,7 @@ const setLanguage = (guild, languages) => {
 }
 
 module.exports = (guild, textId) => {
-    if(!languages.traduções[textId]) {
-        throw new Error(`ID de texto não definido: ${textId}`)
-    }
+    if(!languages.traduções[textId]) {throw new Error(`ID de texto não definido: ${textId}`)}
 
     const selectedLanguage = guildLanguages[guild.id]
 

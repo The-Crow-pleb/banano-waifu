@@ -21,8 +21,5 @@ module.exports = {
             let del = msg.delete({timeout: ms('4s')})
             await del; message.reply(pingUptime)
         })
-
-
-
     }
 }

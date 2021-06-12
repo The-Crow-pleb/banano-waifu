@@ -45,14 +45,12 @@ async function registerEvents(client, dir) {
                     client.on(eventName, eventModule.bind(null, client));
                 }
                 catch(err) {
-
+                    console.log(err)
                 }
             }
         }
     }
 }
-
-
 
 module.exports = {
     registerCommands,

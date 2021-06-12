@@ -5,7 +5,6 @@ module.exports.checkCommandModule = (cmdName, cmdModule) => {
         throw new Error(`O comando "${cmdName}" não tem a propriedade 'description'`)
     if(!cmdModule.hasOwnProperty('aliases'))
         throw new Error(`O comando "${cmdName}" não tem a propriedade 'aliases'`)
-
     return true
 }
 

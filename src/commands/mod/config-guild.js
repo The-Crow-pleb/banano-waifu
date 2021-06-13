@@ -15,8 +15,10 @@ module.exports = {
             else if(args[0] === 'prefix') {def = 'prefixConfig'}
             else if(args[0] === 'language') {def = 'languageConfig'}
             else if(args[0] === 'help') {def = 'helpConfig'}
+            else if(args[0] === 'show') {def = 'configConsult'}
             if (!args[0] || !def) {return message.react('<:Bad_Argument:853404667765850112>')}
             message.channel.startTyping()
+            
             if(def === 'helpConfig') {
                 const helpConfig = new MessageEmbed()
                     .setColor('#ffe135')
@@ -90,6 +92,13 @@ module.exports = {
                     .setColor("RANDOM")
                 message.reply(success); message.channel.stopTyping()
                 await guildSchema.findOneAndUpdate({_id: guild.id},{_id: guild.id,language: targetLanguage,},{upsert: true,})
+            } else if (def === 'configConsult') {
+                const consultEmbed = new MessageEmbed()
+                    .setAuthor(guild.name, guild.iconURL({dynamic: true}))
+                    .setColor('RANDOM')
+                    .setDescription(`\`\`\`json\n${JSON.stringify(configConsult, null, '\t')}\`\`\``)
+                message.channel.stopTyping()
+                return message.reply(consultEmbed)
             }
         } catch (error) {
             const errorEmbed = new MessageEmbed()

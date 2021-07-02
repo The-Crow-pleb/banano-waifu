@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js'); const lang = require('../../../utils/languages/languages')
+const { MessageEmbed } = require('discord.js'); const lang = require('../../../../utils/languages/languages')
 const { default: fetch } = require('node-fetch')
 module.exports = {
     description: '', aliases: [],

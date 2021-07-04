@@ -1,6 +1,6 @@
 {
   "name": "banano-calculator",
-  "version": "1.0.0",
+  "version": "7.2.1",
   "description": "A bot made to calculate the Estimated Banano Earnings from f@h and other things",
   "main": "src/bot.js",
   "scripts": {
